@@ -6,27 +6,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NFT Kiralama Vitrini</title>
   <style>
+    :root {
+      --bg: #0f0f0f;
+      --text: #fff;
+      --card-bg: #1e1e1e;
+      --card-border: #333;
+      --highlight: #00e0ff;
+    }
+    body.light-mode {
+      --bg: #f8f8f8;
+      --text: #111;
+      --card-bg: #fff;
+      --card-border: #ddd;
+      --highlight: #0077cc;
+    }
     body {
       font-family: Arial, sans-serif;
-      background: #0f0f0f;
-      color: #fff;
+      background: var(--bg);
+      color: var(--text);
       margin: 0;
       padding: 0;
+      transition: background 0.5s, color 0.5s;
+      overflow-x: hidden;
     }
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 40px 20px;
+      position: relative;
+      z-index: 2;
     }
     h1, h2 {
       text-align: center;
       color: #f9b800;
+      transition: transform 0.3s;
+    }
+    h1:hover {
+      transform: scale(1.05);
     }
     .intro {
       text-align: center;
       font-size: 1.1rem;
-      color: #ddd;
+      color: #ccc;
       margin-top: 10px;
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 5;
+      background: var(--card-bg);
+      color: var(--text);
+      padding: 10px 15px;
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .theme-toggle:hover {
+      background: var(--highlight);
+      color: #fff;
     }
     .nft-grid {
       display: grid;
@@ -36,10 +75,10 @@
       perspective: 1000px;
     }
     .nft-card {
-      background: #1e1e1e;
+      background: var(--card-bg);
       border-radius: 10px;
       padding: 15px;
-      border: 1px solid #333;
+      border: 1px solid var(--card-border);
       transform-style: preserve-3d;
       transition: transform 0.5s ease, box-shadow 0.5s ease;
       position: relative;
@@ -73,8 +112,12 @@
     }
     .nft-card h3 {
       margin: 10px 0 5px;
-      color: #fff;
+      color: var(--text);
       transform: translateZ(20px);
+      transition: transform 0.3s;
+    }
+    .nft-card h3:hover {
+      transform: translateY(-3px) scale(1.05);
     }
     .nft-card p {
       font-size: 14px;
@@ -87,53 +130,63 @@
       color: #ccc;
     }
     .highlight {
-      color: #00e0ff;
+      color: var(--highlight);
+    }
+    /* background glow */
+    .glow-bg {
+      position: fixed;
+      top: -20%;
+      left: -20%;
+      width: 150%;
+      height: 150%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.04), transparent 70%);
+      animation: moveGlow 10s infinite alternate ease-in-out;
+      z-index: 0;
+    }
+    @keyframes moveGlow {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(30px, 30px); }
     }
   </style>
 </head>
 <body>
+  <div class="glow-bg"></div>
+  <button class="theme-toggle" onclick="toggleTheme()">🌗 Tema Değiştir</button>
+
   <div class="container">
     <h1>🔥 Rise Online NFT Kiralama Vitrini 🔥</h1>
     <p class="intro">Efsanevi dijital varlıklar artık sadece sizin! NFT'lerimizi kiralayın, koleksiyonlarınıza prestij katın, markanızı farklılaştırın. <strong>Sınırlı sayıda, yüksek talep!</strong></p>
 
     <div class="nft-grid">
-      <div class="nft-card">
+      <div class="nft-card" onclick="playClick()">
         <img src="WARLORD MAGE NFT.png" alt="Warlord">
         <h3>Warlord</h3>
         <p>Kiralık: <span class="highlight">350 TL/ay</span></p>
         <p>⚔️ Asil duruşu ve savaşçı ruhuyla savaş alanlarında fark yaratır.</p>
       </div>
-      <div class="nft-card">
+      <div class="nft-card" onclick="playClick()">
         <img src="200 Warmaiden .png" alt="Warmaiden">
         <h3>Warmaiden</h3>
         <p>Kiralık: <span class="highlight">400 TL/ay</span></p>
         <p>👑 Cesur ve ihtişamlı! Renkli zırhı ve enerjik duruşuyla göz alıcı bir karakter.</p>
       </div>
-      <div class="nft-card">
+      <div class="nft-card" onclick="playClick()">
         <img src="DARK WARLORD.png" alt="Dark Warlord">
         <h3>Dark Warlord</h3>
         <p>Kiralık: <span class="highlight">450 TL/ay</span></p>
         <p>🛡️ Karanlık güçlerin lordu. Koleksiyonunuza karizma katar!</p>
       </div>
-      <div class="nft-card">
+      <div class="nft-card" onclick="playClick()">
         <img src="Disruptor.png" alt="Disruptor">
         <h3>Disruptor</h3>
         <p>Kiralık: <span class="highlight">400 TL/ay</span></p>
         <p>🔥 Düşman hatlarında yıkım yaratır. Savaş stratejisi arayanlar için ideal NFT.</p>
       </div>
-      <div class="nft-card">
+      <div class="nft-card" onclick="playClick()">
         <img src="Healing Angel.png" alt="Healing Angel">
         <h3>Healing Angel</h3>
         <p>Kiralık: <span class="highlight">300 TL/ay</span></p>
         <p>✨ Işığın meleği! Şifa ve zarafeti bir araya getiren mükemmel koleksiyon parçası.</p>
-        <p><strong>Özellikler:</strong><br>
-        • Element: Işık<br>
-        • Rol: Destek / Şifacı<br>
-        • Nadirdir (Rare)<br>
-        • NFT ID: #021-HA<br>
-        • Oyun Kullanımı: Oyuncu can yenileme hızını %20 artırır<br>
-        • Stil: Zarif kanatlar, altın ışık efekti, göksel aura</p>
-        <p><em>Not:</em> Sergi, metaverse veya tanıtım amaçlı kullanım için idealdir.</p>
       </div>
     </div>
 
@@ -145,5 +198,16 @@
       <p style="margin-top:10px; font-size:0.9rem; color:#888;">Not: NFT'ler sınırlı sayıda olduğu için erken talep avantaj sağlar.</p>
     </div>
   </div>
+
+  <audio id="clickSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_2a5773f2be.mp3"></audio>
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+    function playClick() {
+      const sound = document.getElementById('clickSound');
+      if (sound) sound.play();
+    }
+  </script>
 </body>
 </html>
