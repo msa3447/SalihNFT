@@ -4,15 +4,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NFT Kiralama Vitrini</title>
+  <title>NFT Vitrini</title>
   <style>
-    body { background: #0f0f0f; color: #fff; font-family: Arial; margin: 0; padding: 20px; }
-    h1 { text-align: center; color: #f9b800; }
-    .nft-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
-    .nft-card { background: #1e1e1e; border-radius: 10px; padding: 10px; text-align: center; border: 1px solid #333; }
-    .nft-card img { width: 100%; border-radius: 10px; }
-    .nft-card a { color: #00e0ff; text-decoration: none; }
-    .nft-card h3 { margin-top: 10px; }
+    body {
+      background: #0f0f0f;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    h1 {
+      text-align: center;
+      color: #f9b800;
+    }
+    .nft-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .nft-card {
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #333;
+      transition: transform 0.3s;
+    }
+    .nft-card:hover {
+      transform: scale(1.03);
+    }
+    .nft-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .nft-card a {
+      color: #00e0ff;
+      text-decoration: none;
+    }
+    .form-section {
+      background: #1c1c1c;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+    }
+    .form-section h2 {
+      color: #00e0ff;
+    }
+    .form-section input, .form-section textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: none;
+      background: #2a2a2a;
+      color: #fff;
+    }
+    .form-section button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #00e0ff;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -54,6 +116,16 @@
       </a>
     </div>
     
+  </div>
+
+  <div class="form-section">
+    <h2>📩 İletişim Formu</h2>
+    <form action="mailto:youremail@example.com" method="post" enctype="text/plain">
+      <input type="text" name="ad" placeholder="Adınız" required>
+      <input type="text" name="wallet" placeholder="Cüzdan Adresiniz" required>
+      <textarea name="mesaj" placeholder="Mesajınız" rows="5" required></textarea>
+      <button type="submit">Bana Ulaş</button>
+    </form>
   </div>
 </body>
 </html>
