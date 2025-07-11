@@ -13,58 +13,33 @@
       padding: 20px;
       animation: fadeIn 1s ease-in-out;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
     h1 {
       text-align: center;
       color: #f9b800;
     }
     .nft-img {
-      width: 300px;
-      height: 300px;
-      margin: 20px auto;
       display: flex;
       justify-content: center;
+      margin: 20px 0;
     }
     .nft-img img {
-      max-width: 100%;
+      width: 300px;
       border-radius: 10px;
     }
-    .section {
-      background: #1c1c1c;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 20px auto;
-      max-width: 600px;
-    }
-    .section h2 {
-      color: #00e0ff;
-    }
-    .section input, .section textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 6px;
-      border: none;
-      background: #2a2a2a;
-      color: #fff;
-    }
-    .section button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #00e0ff;
-      color: #000;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    a {
-      color: #00e0ff;
-      display: block;
+    .desc {
       text-align: center;
-      margin-top: 30px;
+      font-size: 1.1rem;
+      color: #ddd;
+      margin: 20px;
+    }
+    .back {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .back a {
+      color: #00e0ff;
+      text-decoration: none;
+      font-size: 1.1rem;
     }
   </style>
 </head>
@@ -73,23 +48,11 @@
   <div class="nft-img">
     <img src="SiyahElite.png" alt="SiyahElite">
   </div>
-
-  <div class="section">
-    <h2>Açıklama</h2>
-    <p>Bu NFT'ye ait açıklama buraya eklenecek.</p>
+  <div class="desc">
+    <p>🖤 Gölgelerin içinden doğan zarafet. Güçlü duruşuyla elit sınıfın temsilcisi.</p>
   </div>
-
-  <div class="section">
-    <h2>🎯 Teklif Gönder</h2>
-    <form action="mailto:youremail@example.com" method="post" enctype="text/plain">
-      <input type="text" name="ad" placeholder="Adınız veya kullanıcı adınız" required>
-      <input type="text" name="sure" placeholder="Kiralama süresi (örneğin 1 ay)" required>
-      <input type="text" name="iletisim" placeholder="Discord / Telegram" required>
-      <textarea name="mesaj" placeholder="Eklemek istedikleriniz..." rows="4"></textarea>
-      <button type="submit">Teklif Gönder</button>
-    </form>
+  <div class="back">
+    <a href="index.html">← Ana Sayfaya Dön</a>
   </div>
-
-  <a href="index.html">← Ana Sayfa</a>
 </body>
 </html>
